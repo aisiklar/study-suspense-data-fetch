@@ -1,36 +1,45 @@
 "use client";
 
-import { getSlowData } from "@/utils";
 import { Suspense, useState } from "react";
+import Loading from "../loading";
+import DataForLoadingTwo from "@/components/DataForLoadingTwo";
+import DataForLoadingOne from "@/components/DataForLoadingOne";
 
 export default function StudyLoading() {
   console.log("at loadingSubject page");
 
-  const [data, setData] = useState<string>("");
+  const [isShowData, setIsShowData] = useState<boolean>(false);
 
-  async function getData() {
+  console.log("isShowData: ", isShowData);
+
+  async function showData() {
     console.log("clicked button!");
-    let response = await getSlowData(3000);
-    setData(response);
+    setIsShowData(true);
   }
 
   return (
     <section>
       <div className="m-2">
-        this page will simulate slow data fetching from a server:
+        Usage of React Suspense for streaming data (simulated):
       </div>
-      <button onClick={getData} className="m-2 border rounded p-2">
+      <button onClick={showData} className="m-2 border rounded p-2">
         Click to fetch data
       </button>
-      <Suspense
-        fallback={
-          <p className="p-2 border rounded text-red-300">
-            Wait for a moment please
-          </p>
-        }
-      >
-        <p className="mt-2  p-2">{data}</p>
-      </Suspense>
+
+      {isShowData && (
+        <div>
+          <Suspense fallback={<Loading />}>
+            <DataForLoadingOne />
+            <DataForLoadingTwo />
+          </Suspense>
+          {/*  <Suspense fallback={<Loading />}>
+            <DataForLoadingOne />
+          </Suspense>
+          <Suspense fallback={<Loading />}>
+            <DataForLoadingTwo />
+          </Suspense> */}
+        </div>
+      )}
     </section>
   );
 }
