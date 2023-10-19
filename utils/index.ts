@@ -25,7 +25,8 @@ export function doExpensiveCalculation(qtyInput: string) {
   }
 
   for (let i = 0; i < Arr.length; i++) {
-    Arr[i] = Math.floor(Math.random() * i);
+    //Arr[i] = Math.floor(Math.random() * i);
+    Arr[i] = i;
   }
   console.log("Arr: ", Arr);
   return Arr;

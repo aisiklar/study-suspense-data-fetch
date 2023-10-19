@@ -30,6 +30,10 @@ export default function Memoization() {
     setShowNoMemo(!showNoMemo);
   }
 
+  function calculateWithMemo() {
+    console.log("calculateWithMemo func");
+  }
+
   return (
     <section>
       <h1>Memoization</h1>
@@ -43,17 +47,30 @@ export default function Memoization() {
           className=" text-black"
         ></input>
         <button onClick={calculateNoMemo} className="border rounded ml-2 p-1">
-          Enter to calculate
+          Enter to calculate (no memoization)
+        </button>
+        <button onClick={calculateWithMemo} className="border rounded ml-2 p-1">
+          Enter to calculate (with memoization)
         </button>
       </div>
-      <p className="mt-2">Results of expensive calculation (no memoization):</p>
-      {showNoMemo ? (
-        <ExpensiveCalculation
-          key={renderKey}
-          qty={qty}
-          isShown={(state) => setShowNoMemo(state)}
-        />
-      ) : null}
+      <div className="flex mt-[30px] justify-center">
+        <div className="border rounded p-1 mr-4">
+          <p className="mt-2">
+            Results of expensive calculation (no memoization):
+          </p>
+          {showNoMemo ? (
+            <ExpensiveCalculation
+              qty={qty}
+              isShown={(state) => setShowNoMemo(state)}
+            />
+          ) : null}
+        </div>
+        <div className="border rounded p-1 ml-4">
+          <p className="mt-2">
+            Results of expensive calculation (with memoization):
+          </p>
+        </div>
+      </div>
     </section>
   );
 }
