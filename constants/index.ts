@@ -9,7 +9,11 @@ export const projectSubjects = [
     link: "loadingData",
   },
   {
-    subject: "memoization",
-    link: "memoization",
+    subject: "memoization - avoiding expensive calculation",
+    link: "memoization-1",
+  },
+  {
+    subject: "memoization - avoiding re-rendering of child component",
+    link: "memoization-2",
   },
 ];

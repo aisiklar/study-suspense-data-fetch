@@ -2,8 +2,8 @@
 
 import { Suspense, useState } from "react";
 import Loading from "../loading";
-import DataForLoadingTwo from "@/components/DataForLoadingTwo";
-import DataForLoadingOne from "@/components/DataForLoadingOne";
+import DataForLoadingTwo from "@/components/suspense/DataForLoadingTwo";
+import DataForLoadingOne from "@/components/suspense/DataForLoadingOne";
 
 export default function StudyLoading() {
   console.log("at loadingSubject page");
