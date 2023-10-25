@@ -1,6 +1,7 @@
 "use client";
 
 import ExpensiveCalculation from "@/components/ExpensiveCalculation";
+import ExpensiveCalculationMemo from "@/components/ExpensiveCalculationMemo";
 import { useEffect, useState } from "react";
 
 export default function Memoization() {
@@ -8,30 +9,43 @@ export default function Memoization() {
   const [renderKey, setRenderKey] = useState<number>(1);
   const [buttonNoMemoClicked, setButtonNoMemoClicked] =
     useState<boolean>(false);
+  const [buttonWithMemoClicked, setButtonWithMemoClicked] =
+    useState<boolean>(false);
 
   const [showNoMemo, setShowNoMemo] = useState<boolean>(false);
+  const [showWithMemo, setShowWithMemo] = useState<boolean>(false);
 
   useEffect(() => {
     console.log("use Effect, on change of showNoMemo");
     if (buttonNoMemoClicked && !showNoMemo) {
-      console.log("remount comp");
+      console.log("remount comp - Expensive calculation no memo");
       setShowNoMemo(true);
     }
-  }, [showNoMemo]);
+    if (buttonWithMemoClicked && !showWithMemo) {
+      console.log("remount comp Expensive calculation with memo");
+      setShowWithMemo(true);
+    }
+  }, [showNoMemo, showWithMemo]);
 
-  console.log("qty:", qty);
+  console.log("qty:", qty, typeof qty);
   console.log("renderKey:", renderKey);
   console.log("showNoMemo: ", showNoMemo);
+  console.log("showWithMemo: ", showWithMemo);
   console.log("buttonNoMemoClicked: ", buttonNoMemoClicked);
 
   function calculateNoMemo() {
     setButtonNoMemoClicked(true);
+    setButtonWithMemoClicked(false);
     setRenderKey(renderKey + 1);
     setShowNoMemo(!showNoMemo);
   }
 
   function calculateWithMemo() {
     console.log("calculateWithMemo func");
+    setButtonWithMemoClicked(true);
+    setButtonNoMemoClicked(false);
+    setRenderKey(renderKey + 1);
+    setShowWithMemo(!showWithMemo);
   }
 
   return (
@@ -69,6 +83,7 @@ export default function Memoization() {
           <p className="mt-2">
             Results of expensive calculation (with memoization):
           </p>
+          {showWithMemo && <ExpensiveCalculationMemo qty={qty} />}
         </div>
       </div>
     </section>
