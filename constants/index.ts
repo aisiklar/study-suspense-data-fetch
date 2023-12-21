@@ -16,4 +16,16 @@ export const projectSubjects = [
     subject: "memoization - avoiding re-rendering of child component",
     link: "memoization-2",
   },
+  {
+    subject: "memoization - usage of React.memo() - unmemoized case",
+    link: "memoization-31",
+  },
+  {
+    subject: "memoization - usage of useMemo() hook - memoized case",
+    link: "memoization-32",
+  },
+  {
+    subject: "memoization - usage of useMemo() hook",
+    link: "memoization-4",
+  },
 ];
