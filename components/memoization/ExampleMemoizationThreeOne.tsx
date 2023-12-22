@@ -35,7 +35,9 @@ export default function ExampleMemoizationThreeOne() {
     <div className="mt-2 ml-2">
       <h1 className="text-red-300">unmemoized case</h1>
       <p className="text-red-300 mb-2">
-        when input is changed, it renders with bad performance.
+        when input changes, it renders with bad performance. Although, the input
+        is not directly related with child comp.
+        <p>note: child comp. is artificially slowed down (a lot!)</p>
       </p>
       <input
         className="text-black"

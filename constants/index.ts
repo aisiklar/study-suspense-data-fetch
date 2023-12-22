@@ -25,7 +25,7 @@ export const projectSubjects = [
     link: "memoization-32",
   },
   {
-    subject: "memoization - usage of useMemo() hook",
+    subject: "memoization - usage of useCallback() hook with React.memo()",
     link: "memoization-4",
   },
 ];
