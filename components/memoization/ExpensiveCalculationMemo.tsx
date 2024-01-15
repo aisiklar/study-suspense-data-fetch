@@ -7,8 +7,8 @@ type Props = {
 
 export default function ExpensiveCalculationMemo(props: Props) {
   console.log("ExpensiveCalculationMemo rendered: ", props.render);
-
-  let resultWithMemo = useMemo(() => doExpensiveCalculation("10"), [props.qty]);
+  let qty = "10";
+  let resultWithMemo = useMemo(() => doExpensiveCalculation(qty), [qty]);
 
   console.log("resultWithMemo:", resultWithMemo);
 

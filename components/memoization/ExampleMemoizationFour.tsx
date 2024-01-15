@@ -45,9 +45,16 @@ export default function ExampleMemoizationFour() {
 
   // callback case
   const incrementCount = useCallback(() => {
-    console.log("button on parent comp. clicked");
+    console.log(
+      "increment count function in parent comp called from child comp"
+    );
     setCount(count + 1);
   }, [count]);
+
+  function incrementCountFromParent() {
+    console.log("button on parent comp. clicked");
+    setCount(count + 1);
+  }
 
   // no callback() case
   /* const incrementCount = () => {
@@ -60,15 +67,9 @@ export default function ExampleMemoizationFour() {
       <h1 className="text-red-300">memoized case with useCallback() hook</h1>
       <p className="text-red-300 mb-2">
         It renders with delay in first render and also when buttons are clicked,
-        which causes a re-render of the child comp.{" "}
-        <p>
-          But if input changes, it shows better performance compared to
-          no-memoized / no useCallback() hook case.
-        </p>
-        <p className="text-red-300 mb-2">
-          {" "}
-          note: child comp. is artificially slowed down (a lot!)
-        </p>
+        which causes a re-render of the child comp. But if input changes, it
+        shows better performance compared to no-memoized / no useCallback() hook
+        case. note: child comp. is artificially slowed down (a lot!)
       </p>
       <input
         className="text-black"
@@ -76,7 +77,10 @@ export default function ExampleMemoizationFour() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <button className="border rounded p-1 mx-2" onClick={incrementCount}>
+      <button
+        className="border rounded p-1 mx-2"
+        onClick={incrementCountFromParent}
+      >
         Increment counter
       </button>
       <h3>Input text: {input}</h3>

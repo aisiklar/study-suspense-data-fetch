@@ -36,10 +36,8 @@ export default function ExampleMemoizationThree() {
       <p className="text-red-300 mb-2">
         It renders with delay in first render and also when buttons are clicked,
         which causes a re-render of the child comp.
-        <p className="text-red-300 mb-2">
-          But if input changes, it shows better performance compared to
-          no-memoized case.
-        </p>
+        <br></br> But if input changes, it shows better performance compared to
+        no-memoized case.
       </p>
       <p className="text-red-300 mb-2">
         note: child comp. is artificially slowed down (a lot!)

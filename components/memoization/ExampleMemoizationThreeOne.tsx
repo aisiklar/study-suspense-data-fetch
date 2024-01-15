@@ -36,12 +36,14 @@ export default function ExampleMemoizationThreeOne() {
       <h1 className="text-red-300">unmemoized case</h1>
       <p className="text-red-300 mb-2">
         when input changes, it renders with bad performance. Although, the input
-        is not directly related with child comp.
-        <p>note: child comp. is artificially slowed down (a lot!)</p>
+        is not directly related with child comp. <br /> note: child comp. is
+        artificially slowed down (a lot!)
       </p>
+      <hr></hr>
       <input
         className="text-black"
         type="text"
+        placeholder="enter text here"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
