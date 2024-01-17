@@ -29,7 +29,11 @@ export const projectSubjects = [
     link: "memoization-4",
   },
   {
-    subject: "Lazy Loading",
-    link: "lazy"
-  }
+    subject: "Lazy Loading not used",
+    link: "lazy-1",
+  },
+  {
+    subject: "Lazy Loading with Next Dynamic Function",
+    link: "lazy-2",
+  },
 ];
