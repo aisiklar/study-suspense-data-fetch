@@ -5,7 +5,7 @@ export default function Home() {
   console.log("at home page");
 
   let style_Link =
-    "hover:no-underline hover:font-semibold hover:text-white visited:no-underline focus:no-underline focus:text-white";
+    "px-2 py-1 hover:no-underline hover:font-semibold hover:text-white visited:no-underline focus:no-underline focus:text-white";
 
   return (
     <section>
