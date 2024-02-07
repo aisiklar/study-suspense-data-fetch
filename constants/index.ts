@@ -28,10 +28,10 @@ export const projectSubjects = [
     subject: "memoization - usage of useCallback() hook with React.memo()",
     link: "memoization-4",
   },
-  {
-    subject: "Lazy Loading not used",
-    link: "lazy-1",
-  },
+  // {
+  //   subject: "Lazy Loading not used",
+  //   link: "lazy-1",
+  // },
   {
     subject: "Lazy Loading with Next Dynamic Function",
     link: "lazy-2",
